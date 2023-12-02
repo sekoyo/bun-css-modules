@@ -1,6 +1,6 @@
 {
   "name": "bun-css-modules",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Import CSS Modules into Bun for server rendered html/components",
   "main": "index.ts",
   "type": "module",

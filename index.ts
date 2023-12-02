@@ -15,7 +15,7 @@ type Options = {
   browserlistQuery?: string | string[]
 }
 
-export function moduleCssLoader({ browserlistQuery = defaultBrowserlist }: Options) {
+export function moduleCssLoader({ browserlistQuery = defaultBrowserlist }: Options = {}) {
   const pluginConfig: BunPlugin = {
     name: 'Module CSS Loader',
     async setup(build) {
