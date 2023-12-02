@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": ".",
+    "types": ["bun-types", "./types.d.ts"]
+  }
+}
