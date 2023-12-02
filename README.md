@@ -12,13 +12,19 @@ To install dependencies:
 bun add -D bun-css-modules
 ```
 
-Create a `bunfig.toml` if you don't have one and add:
+Create `cssLoader.ts`:
 
 ```ts
 import { plugin } from 'bun'
 import { moduleCssLoader } from 'bun-css-modules'
 
 plugin(moduleCssLoader())
+```
+
+Create a `bunfig.toml` if you don't have one and add:
+
+```toml
+preload = ["./cssLoader.ts"]
 ```
 
 ## Example Usage
@@ -84,5 +90,32 @@ function SignUpPage() {
       <style>{styles}</style>
     </div>
   )
+}
+```
+
+## Typescript
+
+Add an ambient file if you don't have one, e.g. `app.d.ts`:
+
+```ts
+declare module '*.module.css' {
+  const styles: {
+    cssText: string
+    [className: string]: string
+  }
+  export default styles
+}
+```
+
+And include it in your `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": ".",
+    "types": ["bun-types", "./app.d.ts"]
+  }
 }
 ```

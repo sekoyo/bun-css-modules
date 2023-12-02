@@ -35,19 +35,26 @@ export function moduleCssLoader({ browserlistQuery = defaultBrowserlist }: Optio
           [cssTextKey]: new TextDecoder().decode(code),
         }
 
-        return {
-          exports: Object.entries(exports || {}).reduce((o, [k, desc]) => {
-            if (k === cssTextKey) {
-              throw new Error(`${cssTextKey} is a reserved class name`)
-            }
+        const styleObj = Object.entries(exports || {}).reduce((o, [k, desc]) => {
+          if (k === cssTextKey) {
+            throw new Error(`${cssTextKey} is a reserved class name`)
+          }
 
-            if (desc.composes.length) {
-              o[k] = `${desc.name} ${desc.composes.map(c => c.name).join(' ')}`
-            } else {
-              o[k] = desc.name
-            }
-            return o
-          }, baseExport),
+          if (desc.composes.length) {
+            o[k] = `${desc.name} ${desc.composes.map(c => c.name).join(' ')}`
+          } else {
+            o[k] = desc.name
+          }
+          return o
+        }, baseExport)
+
+        // Undocumented prop which allows importing as default
+        // @ts-ignore
+        styleObj.default = styleObj
+
+        return {
+          default: { penny: 'a' },
+          exports: styleObj,
           loader: 'object',
         }
       })
