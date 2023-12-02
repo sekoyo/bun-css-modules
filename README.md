@@ -57,7 +57,7 @@ export function PrimaryButton({ children }) {
 }
 ```
 
-Include styles once in your head via the special `cssString` property.
+Include styles once in your head via the special `cssText` property.
 
 ```jsx
 import buttonStyles from 'src/components/Button/Button.module.css'
@@ -68,8 +68,8 @@ export function Layout({ title, children }: LayoutProps) {
     <html>
       <head>
         <title>{title}</title>
-        <style>{buttonStyles.cssString}</style>
-        <style>{tableStyles.cssString}</style>
+        <style>{buttonStyles.cssText}</style>
+        <style>{tableStyles.cssText}</style>
       </head>
       <body>{children}</body>
     </html>
@@ -87,7 +87,7 @@ function SignUpPage() {
       <h1>Sign up</h1>
       <PrimaryButton>Sign up</PrimaryButton>
       {/* One-off page styling can just be included here */}
-      <style>{styles.cssString}</style>
+      <style>{styles.cssText}</style>
     </div>
   )
 }
