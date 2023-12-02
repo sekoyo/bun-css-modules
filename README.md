@@ -87,7 +87,7 @@ function SignUpPage() {
       <h1>Sign up</h1>
       <PrimaryButton>Sign up</PrimaryButton>
       {/* One-off page styling can just be included here */}
-      <style>{styles}</style>
+      <style>{styles.cssString}</style>
     </div>
   )
 }
