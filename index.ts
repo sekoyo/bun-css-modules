@@ -39,6 +39,11 @@ export function moduleCssLoader({ browserlistQuery = defaultBrowserlist }: Optio
           if (k === cssTextKey) {
             throw new Error(`${cssTextKey} is a reserved class name`)
           }
+          if (k === 'default') {
+            // This is the only I managed to allow default `import styles`
+            // with bun object loader
+            throw new Error(`default is a reserved class name`)
+          }
 
           if (desc.composes.length) {
             o[k] = `${desc.name} ${desc.composes.map(c => c.name).join(' ')}`
