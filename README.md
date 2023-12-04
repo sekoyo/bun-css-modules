@@ -21,6 +21,19 @@ import { moduleCssLoader } from 'bun-css-modules'
 plugin(moduleCssLoader())
 ```
 
+You can pass in options to customize some settings via `moduleCssLoader({ [optionName]: <value> })`. The defaults are:
+
+```js
+{
+  filePattern = /\.module.css$/,
+  browserlistQuery = [
+    'last 4 chrome version',
+    'last 4 firefox version',
+    'last 2 safari version',
+  ],
+}
+```
+
 Create a `bunfig.toml` if you don't have one and add:
 
 ```toml

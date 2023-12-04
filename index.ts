@@ -6,22 +6,26 @@ import browserslist from 'browserslist'
 const cssTextKey = 'cssText'
 
 const defaultBrowserlist = [
-  'last 3 chrome version',
-  'last 3 firefox version',
+  'last 4 chrome version',
+  'last 4 firefox version',
   'last 2 safari version',
 ]
 
 type Options = {
+  filePattern?: RegExp
   browserlistQuery?: string | string[]
 }
 
-export function moduleCssLoader({ browserlistQuery = defaultBrowserlist }: Options = {}) {
+export function moduleCssLoader({
+  filePattern = /\.module.css$/,
+  browserlistQuery = defaultBrowserlist,
+}: Options = {}) {
   const pluginConfig: BunPlugin = {
     name: 'Module CSS Loader',
     async setup(build) {
       const { readFileSync } = await import('fs')
 
-      build.onLoad({ filter: /\.module.css$/ }, args => {
+      build.onLoad({ filter: filePattern }, args => {
         const cssText = readFileSync(args.path, 'utf8')
 
         const { code, exports } = transform({
