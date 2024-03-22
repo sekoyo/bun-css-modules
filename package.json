@@ -1,6 +1,6 @@
 {
   "name": "bun-css-modules",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Import CSS Modules into Bun for server rendered html/components",
   "main": "index.ts",
   "type": "module",
@@ -8,15 +8,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "Bun",
-    "CSS Modules"
-  ],
+  "keywords": ["Bun", "CSS Modules"],
   "license": "ISC",
   "dependencies": {
     "browserlist": "^1.0.1",
-    "bun": "^1.0.14",
-    "lightningcss": "^1.22.1"
+    "bun": "^1.0.35",
+    "lightningcss": "^1.24.1"
   },
   "devDependencies": {
     "@types/browserslist": "^4.15.0",
