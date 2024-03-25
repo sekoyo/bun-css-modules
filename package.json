@@ -1,7 +1,8 @@
 {
   "name": "bun-css-modules",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Import CSS Modules into Bun for server rendered html/components",
+  "repository": "https://github.com/sekoyo/bun-css-modules",
   "main": "index.ts",
   "type": "module",
   "types": "./types.d.ts",
