@@ -1,14 +1,18 @@
 {
   "name": "bun-css-modules",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Import CSS Modules into Bun for server rendered html/components",
+  "repository": "https://github.com/sekoyo/bun-css-modules",
   "main": "index.ts",
   "type": "module",
   "types": "./types.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["Bun", "CSS Modules"],
+  "keywords": [
+    "Bun",
+    "CSS Modules"
+  ],
   "license": "ISC",
   "dependencies": {
     "browserlist": "^1.0.1",
